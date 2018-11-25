@@ -16,21 +16,19 @@
 								</slot>
 							</div>
 							<div class="main-modal__paragraph">
-								<slot name="paragraph">
-									<p>Default paragraph</p>
-								</slot>
+								<slot name="paragraph"></slot>
 							</div>
 						</div>
 
 						<div class="main-modal__body">
 							<slot name="body">
-								default body
+
 							</slot>
 						</div>
 
 						<div class="main-modal__footer">
 							<slot name="footer">
-								<v-btn color="primary" dark>Default button</v-btn>
+								<!--<v-btn color="primary" dark>Default button</v-btn>-->
 							</slot>
 						</div>
 					</div>
@@ -55,7 +53,7 @@ export default {
 		color: rgba(29, 29, 29, 0.98)
 		&__overlay
 			position: fixed
-			z-index: 999
+			z-index: 99
 			top: 0
 			right: 0
 			bottom: 0
@@ -120,7 +118,6 @@ export default {
 		&__body
 			font-size: 21px
 			padding: 15px 0
-			text-align: center
 
 		&__footer
 			text-align: center

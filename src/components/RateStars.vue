@@ -61,14 +61,9 @@ export default {
 		set(value) {
 			if (!this.disabled) {
 				this.temp_value = value;
+                this.$emit('onChangeRate', value, this.name);
 				return this.value = value;
 			}
-        }
-	},
-	watch: {
-	    value(val){
-            //console.log(val)
-            this.$emit('setRate', val, this.name);
         }
 	}
 }
@@ -77,6 +72,7 @@ export default {
 <style lang="sass">
 	.rate-star
 		margin-bottom: 50px
+		text-align: center
 		&__caption
 			font-size: 21px
 			line-height: 1.43
