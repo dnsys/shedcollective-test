@@ -84,8 +84,8 @@ export default {
 			background: #000000
 			border-radius: 50%
 			position: absolute
-			top: -21px
-			right: -21px
+			top: -10px
+			right: -10px
 			transition: transform .3s ease-in-out
 			span
 				position: absolute
