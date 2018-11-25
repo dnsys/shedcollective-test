@@ -104,35 +104,35 @@
         },
         data(){
             return{
-                isModalOpened: false,
-                successSentModal: false,
-                confirmSend: false,
+                isModalOpened: false, // main modal with ratings
+                successSentModal: false, // modal after success request
+                confirmSend: false, // middle modal. to confirm sending data
 				payload: {}
             }
         },
 		methods: {
-            onChangeHandler(value, name){
-                if(value !== null){
+            onChangeHandler(value, name){ // method for getting data from rating component by custom event
+                if(value !== null){ // won't save rating data if it's null
                     this.payload = {
                         ...this.payload,
                         [name]: value
                     }
 				}
             },
-			sendRates(){
-                this.confirmSend = false;
-                axios({
+			sendRates(){ // method that will send server request with ratings and get response
+                this.confirmSend = false; // close confirmation modal after click "agree"
+                axios({ // sending post request
                     method: "post",
                     url: "https://app.fakejson.com/q",
                     data: {
                         token: "HFCH5SoEXS3eO4QfszcApA",
-                        data: this.payload
+                        data: this.payload // sending payload with ratings data { 'rating-name': value }
 					}
                 }).then((resp) => {
 					if(resp.status == 200){
-                        this.isModalOpened = false;
-                        this.successSentModal = true;
-                        this.payload = {}
+                        this.isModalOpened = false; // close main modal with stars after success sending
+                        this.successSentModal = true; // show success message
+                        this.payload = {} // clear payload data
 					}
                 });
 

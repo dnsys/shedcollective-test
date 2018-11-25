@@ -6,7 +6,7 @@
 		<div class="rate-star__inner">
 			<label class="rate-star__item" v-for="(rating, index) in ratings"
 				:key="index" :class="{'is-selected': ((value >= rating) && value != null), 'is-disabled': disabled}"
-				v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">
+				@click="set(rating)" @mouseover="star_over(rating)" @mouseout="star_out">
 				<input class="rate-star__checkbox" type="radio" :value="rating" :name="name"
 					v-model="value" :disabled="disabled">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 38">
@@ -46,23 +46,22 @@ export default {
 		};
 	},
 	methods: {
-		star_over(index) {
-			if (!this.disabled) {
-				this.temp_value = this.value;
-				return this.value = index;
-			}
-
-		},
-		star_out(){
-			if (!this.disabled) {
-				return this.value = this.temp_value;
+		star_over(index) { // method will trigger when mouse over the star
+			if (!this.disabled) { // check if rating component is not disabled
+				this.temp_value = this.value; // caching current value
+				this.value = index; // caching index of star to which should fill
 			}
 		},
-		set(value) {
+		star_out(){ // method will trigger when mouse out the star
 			if (!this.disabled) {
-				this.temp_value = value;
-                this.$emit('onChangeRate', value, this.name);
-				return this.value = value;
+				this.value = this.temp_value; // after mouse leave, write cached value
+			}
+		},
+		set(value) { // method will trigger after click on star
+			if (!this.disabled) {
+				this.temp_value = value; // cache current value after click
+                this.$emit('onChangeRate', value, this.name); // emit custom event after click and changed value. return data with name and value
+				this.value = value;
 			}
         }
 	}
