@@ -1,11 +1,20 @@
 <template>
 	<v-container fill-height>
 		<v-layout justify-center wrap align-center>
-			<v-flex>
-				<div class="title">Rate our delivery service, please</div>
-			</v-flex>
-			<v-btn color="primary" dark large @click="isModalOpened = true">Click here</v-btn>
-
+			<div style="text-align: center">
+				<a href="https://shedcollective.com/" target="_blank" class="shedcollective-logo">
+					<span class="shedcollective-logo__logo">
+						<img src="../assets/images/logo-mark.svg" alt="">
+					</span>
+					<span class="shedcollective-logo__name">
+						<img src="../assets/images/logo-type.svg" alt="">
+					</span>
+				</a>
+				<div class="caption-task title">
+					Test task
+				</div>
+				<v-btn color="primary" dark large @click="isModalOpened = true">Click here</v-btn>
+			</div>
 			<ModalWindow v-if="isModalOpened" @close="isModalOpened = false">
 				<div slot="title">
 					How did we do?
@@ -147,4 +156,20 @@
 			width: 100%
 			height: 3px
 			background: linear-gradient(to right, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)
+.shedcollective-logo
+	display: flex
+	align-items: center
+	margin-bottom: 10px
+	&__logo
+		img
+			transition: transform .4s ease-in-out
+			.shedcollective-logo:hover &
+				transform: rotate(180deg)
+	&__name
+		margin-left: 1rem
+
+.caption-task
+	font-size: 23px
+	text-align: center
+	margin-bottom: 30px
 </style>
