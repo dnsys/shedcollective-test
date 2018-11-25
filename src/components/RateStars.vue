@@ -71,14 +71,14 @@ export default {
 <style lang="sass">
 	@import "../assets/sass/mixins/_media.scss"
 	.rate-star
-		margin-bottom: 50px
+		margin-bottom: 40px
 		text-align: center
 		+max-w(540)
 			margin-bottom: 20px
 		&__caption
 			font-size: 21px
 			line-height: 1.43
-			margin-bottom: 25px
+			margin-bottom: 20px
 			+max-w(540)
 				font-size: 16px
 				margin-bottom: 15px
