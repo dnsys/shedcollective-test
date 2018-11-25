@@ -132,6 +132,7 @@
 					if(resp.status == 200){
                         this.isModalOpened = false;
                         this.successSentModal = true;
+                        this.payload = {}
 					}
                 });
 
