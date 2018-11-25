@@ -1,0 +1,17 @@
+.base-button
+  font-size: 21px
+  line-height: 1
+  display: inline-block
+  text-decoration: none
+  &:not(.disabled):not(disabled):hover
+    cursor: pointer
+
+  &--primary
+    color: #fcfcfc
+    border-radius: 4px
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.15), 0 14px 28px 0 rgba(0, 0, 0, 0.15)
+    background-color: #0021ff
+    padding: 15px 30px
+    transition: background-color .3s ease-in-out
+    &:hover
+      background-color: rgba(0, 33, 255, 0.8)
