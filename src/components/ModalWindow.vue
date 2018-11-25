@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style lang="sass">
+	@import "../assets/sass/mixins/_media.scss"
 	.main-modal
 		color: rgba(29, 29, 29, 0.98)
 		&__overlay
@@ -64,7 +65,7 @@ export default {
 			overflow: auto
 
 		&__wrapper
-			padding: 50px 0
+			padding: 50px 20px
 
 		&__container
 			max-width: 645px
@@ -75,6 +76,10 @@ export default {
 			margin: 0 auto
 			padding: 75px 80px
 			position: relative
+			+max-w(540)
+				padding: 50px 55px
+			+max-w(480)
+				padding: 30px 25px
 
 		&__close
 			width: 46px
@@ -91,33 +96,45 @@ export default {
 				background: #fff
 				width: 5px
 				height: 22px
+				left: 21px
+				top: 12px
+				+max-w(540)
+					left: 15px
+					top: 7px
 				&:nth-child(1)
 					transform: rotate(45deg)
-					left: 21px
-					top: 12px
 				&:nth-child(2)
 					transform: rotate(-45deg)
-					left: 21px
-					top: 12px
 			&:hover
 				transform: scale(1.1)
 				will-change: transform
+			+max-w(540)
+				width: 35px
+				height: 35px
 		&__header
 			margin-bottom: 30px
+			+max-w(540)
+				margin-bottom: 20px
 
 		&__title
 			font-size: 36px
 			line-height: normal
 			text-align: center
+			+max-w(540)
+				font-size: 28px
 
 		&__paragraph
 			font-size: 21px
 			line-height: 1.43
 			text-align: center
+			+max-w(540)
+				font-size: 16px
 
 		&__body
 			font-size: 21px
 			padding: 15px 0
+			+max-w(540)
+				font-size: 16px
 
 		&__footer
 			text-align: center

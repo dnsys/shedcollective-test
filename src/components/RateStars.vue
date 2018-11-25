@@ -9,7 +9,7 @@
 				v-on:click="set(rating)" v-on:mouseover="star_over(rating)" v-on:mouseout="star_out">
 				<input class="rate-star__checkbox" type="radio" :value="rating" :name="name"
 					v-model="value" :disabled="disabled">
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="38" viewBox="0 0 40 38">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 38">
 					<defs>
 						<path id="a" d="M0 37.627V.062h39.914v37.565z"/>
 					</defs>
@@ -70,18 +70,30 @@ export default {
 </script>
 
 <style lang="sass">
+	@import "../assets/sass/mixins/_media.scss"
 	.rate-star
 		margin-bottom: 50px
 		text-align: center
+		+max-w(540)
+			margin-bottom: 20px
 		&__caption
 			font-size: 21px
 			line-height: 1.43
 			margin-bottom: 25px
+			+max-w(540)
+				font-size: 16px
+				margin-bottom: 15px
 		&__item
 			display: inline-block
-			height: 40px
+			height: 38px
 			padding: 0 10px
+			+max-w(540)
+				height: 30px
+				padding: 0 5px
+			+max-w(360)
+				height: 20px
 			svg
+				height: 100%
 				.star-fill
 					transition: fill .3s ease-in-out
 					fill: #E3E3E3
